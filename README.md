@@ -33,10 +33,16 @@ The extracted `basex` folder contains everything you need to run BaseX.
 
 Once BaseX is running, the banking database should already be populated and ready to use.
 
+#### Install dependencies: -
+- **Python 3.8+**
+```bash
+pip install -r requirements.txt
+```
 
-#### 4. Interact with the Database
+#### Interact with the Database
 
 You can query and interact with the database using our app :).
 
 ```bash
 streamlit run app.py
+```
