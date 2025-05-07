@@ -7,7 +7,79 @@ import random
 from datetime import datetime
 import pandas as pd
 # Initialize banking system
-bank = BankingXMLQueries()
+# Check for database credentials in session state
+if 'db_creds' not in st.session_state:
+    st.title("🔒 Database Authentication")
+    st.markdown("""
+    <style>
+        .form-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .form-submit {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-submit:hover {
+            background-color: #45a049;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+    with st.form("database_login", clear_on_submit=True):
+        st.markdown('<div class="form-title">Enter Database Credentials</div>', unsafe_allow_html=True)
+
+        # Default values for host and port
+        DEFAULT_HOST = 'localhost'
+        DEFAULT_PORT = 1984
+
+        # Input fields for username and password
+        db_user = st.text_input("👤 Username", placeholder="Enter your username")
+        db_pass = st.text_input("🔑 Password", type="password", placeholder="Enter your password")
+
+        # Submit button
+        submitted = st.form_submit_button("Login", use_container_width=True)
+
+        if submitted:
+            try:
+                # Test connection with default host and port
+                test_bank = BankingXMLQueries(
+                    db_user=db_user,
+                    db_pass=db_pass,
+                    db_host=DEFAULT_HOST,
+                    db_port=DEFAULT_PORT
+                )
+                test_bank.get_users_by_role("customer")  # Test query to validate credentials
+
+                # Store credentials in session state
+                st.session_state.db_creds = {
+                    'user': db_user,
+                    'pass': db_pass,
+                    'host': DEFAULT_HOST,
+                    'port': DEFAULT_PORT
+                }
+                st.success("✅ Authentication successful! Redirecting...")
+                st.rerun()
+            except Exception as e:
+                st.error(f"❌ Authentication failed: {str(e)}")
+
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    st.stop()
+
+# Initialize banking system with stored credentials (including hidden defaults)
+bank = BankingXMLQueries(
+    db_user=st.session_state.db_creds['user'],
+    db_pass=st.session_state.db_creds['pass'],
+    db_host=st.session_state.db_creds['host'],
+    db_port=st.session_state.db_creds['port']
+)
 
 # Configure page
 st.set_page_config(
@@ -546,7 +618,7 @@ elif section == "Card Services":
 
 elif section == "Employee Management":
     st.title("Staff Administration")
-    tab1, tab2, tab3 = st.tabs(["Add Employee", "Employee Directory", "Employee Performance"])
+    tab1, tab2, tab3 = st.tabs(["Add Employee", "Employee Directory", "Branch's Employees"])
     
     with tab1:
         with st.form("new_employee"):
@@ -706,4 +778,6 @@ elif section == "Analytics & Reports":
 # Run the app
 if __name__ == "__main__":
     divider = st.markdown("<hr>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: center;'>Banking System Database Management 🏦</h3>", unsafe_allow_html=True)
+    # add the logged in user creds['user']
+    user = st.session_state.db_creds['user']
+    st.markdown(f"<h3 style='text-align: center;'>Welcome, {user}! Banking System Database Management 🏦</h3>", unsafe_allow_html=True)
