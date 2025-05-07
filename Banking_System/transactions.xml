@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="transactions.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<Transactions>
+  <!-- Internal transfers between accounts -->
+  <Transaction>
+    <TransactionID>TXN1001</TransactionID>
+    <FromAccountID>ACC1001</FromAccountID>
+    <ToAccountID>ACC1002</ToAccountID>
+    <Amount>500.00</Amount>
+    <Date>2023-05-15T09:30:45</Date>
+    <Type>transfer</Type>
+    <Status>completed</Status>
+  </Transaction>
+  
+  <Transaction>
+    <TransactionID>TXN1002</TransactionID>
+    <FromAccountID>ACC1003</FromAccountID>
+    <ToAccountID>ACC1005</ToAccountID>
+    <Amount>1500.50</Amount>
+    <Date>2023-06-01T14:22:10</Date>
+    <Type>payment</Type>
+    <Status>completed</Status>
+  </Transaction>
+
+  <!-- External transactions -->
+  <Transaction>
+    <TransactionID>TXN1003</TransactionID>
+    <FromAccountID>ACC1007</FromAccountID>
+    <ToAccountID>EXT-AMZN-123</ToAccountID>
+    <Amount>89.99</Amount>
+    <Date>2023-07-12T18:45:30</Date>
+    <Type>payment</Type>
+    <Status>completed</Status>
+  </Transaction>
+
+  <Transaction>
+    <TransactionID>TXN1004</TransactionID>
+    <FromAccountID>ACC1013</FromAccountID>
+    <ToAccountID>EXT-UTIL-4455</ToAccountID>
+    <Amount>350.00</Amount>
+    <Date>2023-08-05T07:15:00</Date>
+    <Type>payment</Type>
+    <Status>failed</Status>
+  </Transaction>
+
+  <!-- Salary deposits -->
+  <Transaction>
+    <TransactionID>TXN1005</TransactionID>
+    <FromAccountID>EXT-COMP-987</FromAccountID>
+    <ToAccountID>ACC1009</ToAccountID>
+    <Amount>4500.00</Amount>
+    <Date>2023-09-28T00:05:00</Date>
+    <Type>salary</Type>
+    <Status>completed</Status>
+  </Transaction>
+
+  <!-- Failed transactions -->
+  <Transaction>
+    <TransactionID>TXN1006</TransactionID>
+    <FromAccountID>ACC1015</FromAccountID>
+    <ToAccountID>EXT-TELCO-77</ToAccountID>
+    <Amount>75.00</Amount>
+    <Date>2023-10-11T21:30:15</Date>
+    <Type>payment</Type>
+    <Status>failed</Status>
+  </Transaction>
+
+  <!-- Recurring payments -->
+  <Transaction>
+    <TransactionID>TXN1007</TransactionID>
+    <FromAccountID>ACC1020</FromAccountID>
+    <ToAccountID>EXT-MORT-5566</ToAccountID>
+    <Amount>2200.00</Amount>
+    <Date>2023-11-01T04:00:00</Date>
+    <Type>transfer</Type>
+    <Status>completed</Status>
+  </Transaction>
+
+  <!-- Small transactions -->
+  <Transaction>
+    <TransactionID>TXN1008</TransactionID>
+    <FromAccountID>ACC1017</FromAccountID>
+    <ToAccountID>EXT-CAFE-889</ToAccountID>
+    <Amount>4.75</Amount>
+    <Date>2023-12-24T08:05:20</Date>
+    <Type>payment</Type>
+    <Status>completed</Status>
+  </Transaction>
+
+  <!-- Cross-currency transfers -->
+  <Transaction>
+    <TransactionID>TXN1009</TransactionID>
+    <FromAccountID>ACC1008</FromAccountID>
+    <ToAccountID>ACC1019</ToAccountID>
+    <Amount>10000.00</Amount>
+    <Date>2024-01-15T12:35:40</Date>
+    <Type>transfer</Type>
+    <Status>failed</Status>
+  </Transaction>
+
+  <!-- Refund example -->
+  <Transaction>
+    <TransactionID>TXN1010</TransactionID>
+    <FromAccountID>EXT-RETURN-332</FromAccountID>
+    <ToAccountID>ACC1011</ToAccountID>
+    <Amount>129.99</Amount>
+    <Date>2024-02-14T16:20:00</Date>
+    <Type>transfer</Type>
+    <Status>completed</Status>
+  </Transaction>
+
+  <!-- Loan payments -->
+  <Transaction>
+    <TransactionID>TXN1011</TransactionID>
+    <FromAccountID>ACC1004</FromAccountID>
+    <ToAccountID>LOAN1003</ToAccountID>
+    <Amount>850.00</Amount>
+    <Date>2024-03-05T13:10:05</Date>
+    <Type>transfer</Type>
+    <Status>completed</Status>
+  </Transaction>
+
+  <!-- Large transfers -->
+  <Transaction>
+    <TransactionID>TXN1012</TransactionID>
+    <FromAccountID>ACC1014</FromAccountID>
+    <ToAccountID>ACC1018</ToAccountID>
+    <Amount>50000.00</Amount>
+    <Date>2024-04-01T09:00:00</Date>
+    <Type>transfer</Type>
+    <Status>failed</Status>
+  </Transaction>
+
+  <!-- Subscription services -->
+  <Transaction>
+    <TransactionID>TXN1013</TransactionID>
+    <FromAccountID>ACC1006</FromAccountID>
+    <ToAccountID>EXT-MUSIC-99</ToAccountID>
+    <Amount>14.99</Amount>
+    <Date>2024-05-15T19:45:30</Date>
+    <Type>subscription</Type>
+    <Status>completed</Status>
+  </Transaction>
+
+  <!-- Charity donations -->
+  <Transaction>
+    <TransactionID>TXN1014</TransactionID>
+    <FromAccountID>ACC1010</FromAccountID>
+    <ToAccountID>EXT-CHARITY-01</ToAccountID>
+    <Amount>500.00</Amount>
+    <Date>2024-06-18T11:11:11</Date>
+    <Type>donation</Type>
+    <Status>completed</Status>
+  </Transaction>
+
+  <!-- Failed transfer -->
+  <Transaction>
+    <TransactionID>TXN1015</TransactionID>
+    <FromAccountID>ACC1012</FromAccountID>
+    <ToAccountID>ACC1020</ToAccountID>
+    <Amount>15000.00</Amount>
+    <Date>2024-07-22T23:59:59</Date>
+    <Type>transfer</Type>
+    <Status>failed</Status>
+  </Transaction>
+
+  <!-- Rental payments -->
+  <Transaction>
+    <TransactionID>TXN1016</TransactionID>
+    <FromAccountID>ACC1016</FromAccountID>
+    <ToAccountID>EXT-LAND-775</ToAccountID>
+    <Amount>1200.00</Amount>
+    <Date>2024-08-30T08:30:00</Date>
+    <Type>rent</Type>
+    <Status>completed</Status>
+  </Transaction>
+
+  <!-- Investment transactions -->
+  <Transaction>
+    <TransactionID>TXN1017</TransactionID>
+    <FromAccountID>ACC1005</FromAccountID>
+    <ToAccountID>EXT-INVEST-44</ToAccountID>
+    <Amount>10000.00</Amount>
+    <Date>2024-09-05T10:00:00</Date>
+    <Type>investment</Type>
+    <Status>failed</Status>
+  </Transaction>
+
+  <!-- Micro transactions -->
+  <Transaction>
+    <TransactionID>TXN1018</TransactionID>
+    <FromAccountID>ACC1019</FromAccountID>
+    <ToAccountID>EXT-NEWS-05</ToAccountID>
+    <Amount>0.99</Amount>
+    <Date>2024-10-01T06:05:00</Date>
+    <Type>subscription</Type>
+    <Status>completed</Status>
+  </Transaction>
+
+  <!-- Government payments -->
+  <Transaction>
+    <TransactionID>TXN1019</TransactionID>
+    <FromAccountID>ACC1020</FromAccountID>
+    <ToAccountID>EXT-GOV-TAX</ToAccountID>
+    <Amount>15000.00</Amount>
+    <Date>2024-11-15T12:00:00</Date>
+    <Type>tax</Type>
+    <Status>completed</Status>
+  </Transaction>
+
+  <!-- Currency exchange -->
+  <Transaction>
+    <TransactionID>TXN1020</TransactionID>
+    <FromAccountID>ACC1002</FromAccountID>
+    <ToAccountID>EXT-FOREX-11</ToAccountID>
+    <Amount>2000.00</Amount>
+    <Date>2024-12-31T23:45:00</Date>
+    <Type>currency exchange</Type>
+    <Status>failed</Status>
+  </Transaction>
+</Transactions>

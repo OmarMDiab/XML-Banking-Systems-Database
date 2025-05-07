@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="accounts.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<Accounts>
+  <!-- User 1001: 2 accounts -->
+  <Account>
+    <AccountID>ACC1001</AccountID>
+    <UserID>U1001</UserID>
+    <AccountType>savings</AccountType>
+    <Balance>18500.50</Balance>
+    <Currency>USD</Currency>
+    <Status>active</Status>
+    <OpenDate>2020-05-15</OpenDate>
+  </Account>
+  <Account>
+    <AccountID>ACC1002</AccountID>
+    <UserID>U1001</UserID>
+    <AccountType>checking</AccountType>
+    <Balance>3200.00</Balance>
+    <Currency>EUR</Currency>
+    <Status>active</Status>
+    <OpenDate>2021-06-01</OpenDate>
+  </Account>
+
+  <!-- User 1002: 2 accounts -->
+  <Account>
+    <AccountID>ACC1003</AccountID>
+    <UserID>U1002</UserID>
+    <AccountType>savings</AccountType>
+    <Balance>25000.00</Balance>
+    <Currency>GBP</Currency>
+    <Status>closed</Status>
+    <OpenDate>2019-11-30</OpenDate>
+  </Account>
+  <Account>
+    <AccountID>ACC1004</AccountID>
+    <UserID>U1002</UserID>
+    <AccountType>savings</AccountType>
+    <Balance>9500.75</Balance>
+    <Currency>JPY</Currency>
+    <Status>active</Status>
+    <OpenDate>2022-03-12</OpenDate>
+  </Account>
+
+  <!-- User 1003: 2 accounts -->
+  <Account>
+    <AccountID>ACC1005</AccountID>
+    <UserID>U1003</UserID>
+    <AccountType>checking</AccountType>
+    <Balance>150000.00</Balance>
+    <Currency>CAD</Currency>
+    <Status>active</Status>
+    <OpenDate>2023-01-05</OpenDate>
+  </Account>
+  <Account>
+    <AccountID>ACC1006</AccountID>
+    <UserID>U1003</UserID>
+    <AccountType>savings</AccountType>
+    <Balance>42000.00</Balance>
+    <Currency>AUD</Currency>
+    <Status>closed</Status>
+    <OpenDate>2020-08-22</OpenDate>
+  </Account>
+
+  <!-- User 1004: 2 accounts -->
+  <Account>
+    <AccountID>ACC1007</AccountID>
+    <UserID>U1004</UserID>
+    <AccountType>savings</AccountType>
+    <Balance>7777.77</Balance>
+    <Currency>CHF</Currency>
+    <Status>active</Status>
+    <OpenDate>2021-09-18</OpenDate>
+  </Account>
+  <Account>
+    <AccountID>ACC1008</AccountID>
+    <UserID>U1004</UserID>
+    <AccountType>checking</AccountType>
+    <Balance>0.00</Balance>
+    <Currency>CNY</Currency>
+    <Status>active</Status>
+    <OpenDate>2023-04-01</OpenDate>
+  </Account>
+
+  <!-- User 1005: 2 accounts -->
+  <Account>
+    <AccountID>ACC1009</AccountID>
+    <UserID>U1005</UserID>
+    <AccountType>savings</AccountType>
+    <Balance>125000.50</Balance>
+    <Currency>SGD</Currency>
+    <Status>active</Status>
+    <OpenDate>2022-07-07</OpenDate>
+  </Account>
+  <Account>
+    <AccountID>ACC1010</AccountID>
+    <UserID>U1005</UserID>
+    <AccountType>savings</AccountType>
+    <Balance>6543.21</Balance>
+    <Currency>HKD</Currency>
+    <Status>closed</Status>
+    <OpenDate>2018-12-24</OpenDate>
+  </Account>
+
+  <!-- User 1006: 2 accounts -->
+  <Account>
+    <AccountID>ACC1011</AccountID>
+    <UserID>U1006</UserID>
+    <AccountType>checking</AccountType>
+    <Balance>98765.43</Balance>
+    <Currency>INR</Currency>
+    <Status>active</Status>
+    <OpenDate>2020-02-29</OpenDate>
+  </Account>
+  <Account>
+    <AccountID>ACC1012</AccountID>
+    <UserID>U1006</UserID>
+    <AccountType>checking</AccountType>
+    <Balance>3500.00</Balance>
+    <Currency>USD</Currency>
+    <Status>active</Status>
+    <OpenDate>2023-10-10</OpenDate>
+  </Account>
+
+  <!-- User 1007: 2 accounts -->
+  <Account>
+    <AccountID>ACC1013</AccountID>
+    <UserID>U1007</UserID>
+    <AccountType>savings</AccountType>
+    <Balance>250000.00</Balance>
+    <Currency>EUR</Currency>
+    <Status>active</Status>
+    <OpenDate>2019-04-15</OpenDate>
+  </Account>
+  <Account>
+    <AccountID>ACC1014</AccountID>
+    <UserID>U1007</UserID>
+    <AccountType>checking</AccountType>
+    <Balance>1999.99</Balance>
+    <Currency>GBP</Currency>
+    <Status>closed</Status>
+    <OpenDate>2021-11-11</OpenDate>
+  </Account>
+
+  <!-- User 1008: 2 accounts -->
+  <Account>
+    <AccountID>ACC1015</AccountID>
+    <UserID>U1008</UserID>
+    <AccountType>checking</AccountType>
+    <Balance>75000.00</Balance>
+    <Currency>JPY</Currency>
+    <Status>active</Status>
+    <OpenDate>2022-05-30</OpenDate>
+  </Account>
+  <Account>
+    <AccountID>ACC1016</AccountID>
+    <UserID>U1008</UserID>
+    <AccountType>savings</AccountType>
+    <Balance>1234.56</Balance>
+    <Currency>CAD</Currency>
+    <Status>active</Status>
+    <OpenDate>2023-08-08</OpenDate>
+  </Account>
+
+  <!-- User 1009: 2 accounts -->
+  <Account>
+    <AccountID>ACC1017</AccountID>
+    <UserID>U1009</UserID>
+    <AccountType>checking</AccountType>
+    <Balance>45000.00</Balance>
+    <Currency>AUD</Currency>
+    <Status>active</Status>
+    <OpenDate>2020-07-04</OpenDate>
+  </Account>
+  <Account>
+    <AccountID>ACC1018</AccountID>
+    <UserID>U1009</UserID>
+    <AccountType>checking</AccountType>
+    <Balance>9999.99</Balance>
+    <Currency>CHF</Currency>
+    <Status>closed</Status>
+    <OpenDate>2021-03-21</OpenDate>
+  </Account>
+
+  <!-- User 1010: 2 accounts -->
+  <Account>
+    <AccountID>ACC1019</AccountID>
+    <UserID>U1010</UserID>
+    <AccountType>savings</AccountType>
+    <Balance>88888.88</Balance>
+    <Currency>CNY</Currency>
+    <Status>active</Status>
+    <OpenDate>2023-09-01</OpenDate>
+  </Account>
+  <Account>
+    <AccountID>ACC1020</AccountID>
+    <UserID>U1010</UserID>
+    <AccountType>checking</AccountType>
+    <Balance>654.32</Balance>
+    <Currency>SGD</Currency>
+    <Status>closed</Status>
+    <OpenDate>2018-06-18</OpenDate>
+  </Account>
+</Accounts>

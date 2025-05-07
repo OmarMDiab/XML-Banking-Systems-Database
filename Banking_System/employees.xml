@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="employees.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+
+<Employees>
+  <!-- Branch Managers -->
+  <Employee>
+    <EmployeeID>EMP1001</EmployeeID>
+    <UserID>U2001</UserID>
+    <Position>Branch Manager</Position>
+    <BranchID>B001</BranchID>
+    <HireDate>2015-03-15</HireDate>
+    <Salary>85000.00</Salary>
+  </Employee>
+  <Employee>
+    <EmployeeID>EMP1002</EmployeeID>
+    <UserID>U2002</UserID>
+    <Position>Branch Manager</Position>
+    <BranchID>B002</BranchID>
+    <HireDate>2016-08-22</HireDate>
+    <Salary>88000.00</Salary>
+  </Employee>
+
+  <!-- Loan Officers -->
+  <Employee>
+    <EmployeeID>EMP1003</EmployeeID>
+    <UserID>U2003</UserID>
+    <Position>Loan Officer</Position>
+    <BranchID>B001</BranchID>
+    <HireDate>2018-05-01</HireDate>
+    <Salary>65000.00</Salary>
+  </Employee>
+  <Employee>
+    <EmployeeID>EMP1004</EmployeeID>
+    <UserID>U2004</UserID>
+    <Position>Senior Loan Officer</Position>
+    <BranchID>B003</BranchID>
+    <HireDate>2019-11-12</HireDate>
+    <Salary>72000.00</Salary>
+  </Employee>
+
+  <!-- Tellers -->
+  <Employee>
+    <EmployeeID>EMP1005</EmployeeID>
+    <UserID>U2005</UserID>
+    <Position>Teller</Position>
+    <BranchID>B002</BranchID>
+    <HireDate>2020-02-18</HireDate>
+    <Salary>42000.00</Salary>
+  </Employee>
+  <Employee>
+    <EmployeeID>EMP1006</EmployeeID>
+    <UserID>U2006</UserID>
+    <Position>Senior Teller</Position>
+    <BranchID>B004</BranchID>
+    <HireDate>2021-06-30</HireDate>
+    <Salary>48000.00</Salary>
+  </Employee>
+
+  <!-- Financial Analysts -->
+  <Employee>
+    <EmployeeID>EMP1007</EmployeeID>
+    <UserID>U2007</UserID>
+    <Position>Financial Analyst</Position>
+    <BranchID>B005</BranchID>
+    <HireDate>2017-09-05</HireDate>
+    <Salary>75000.00</Salary>
+  </Employee>
+  <Employee>
+    <EmployeeID>EMP1008</EmployeeID>
+    <UserID>U2008</UserID>
+    <Position>Senior Financial Analyst</Position>
+    <BranchID>B001</BranchID>
+    <HireDate>2019-04-15</HireDate>
+    <Salary>92000.00</Salary>
+  </Employee>
+
+  <!-- Customer Service -->
+  <Employee>
+    <EmployeeID>EMP1009</EmployeeID>
+    <UserID>U2009</UserID>
+    <Position>Customer Service Representative</Position>
+    <BranchID>B003</BranchID>
+    <HireDate>2022-01-10</HireDate>
+    <Salary>38000.00</Salary>
+  </Employee>
+  <Employee>
+    <EmployeeID>EMP1010</EmployeeID>
+    <UserID>U2010</UserID>
+    <Position>CSR Team Lead</Position>
+    <BranchID>B002</BranchID>
+    <HireDate>2020-07-01</HireDate>
+    <Salary>45000.00</Salary>
+  </Employee>
+
+  <!-- IT Department -->
+  <Employee>
+    <EmployeeID>EMP1011</EmployeeID>
+    <UserID>U2011</UserID>
+    <Position>IT Specialist</Position>
+    <BranchID>B005</BranchID>
+    <HireDate>2018-12-03</HireDate>
+    <Salary>68000.00</Salary>
+  </Employee>
+  <Employee>
+    <EmployeeID>EMP1012</EmployeeID>
+    <UserID>U2012</UserID>
+    <Position>Systems Administrator</Position>
+    <BranchID>B004</BranchID>
+    <HireDate>2021-03-22</HireDate>
+    <Salary>78000.00</Salary>
+  </Employee>
+
+  <!-- Auditors -->
+  <Employee>
+    <EmployeeID>EMP1013</EmployeeID>
+    <UserID>U2013</UserID>
+    <Position>Internal Auditor</Position>
+    <BranchID>B001</BranchID>
+    <HireDate>2016-10-15</HireDate>
+    <Salary>82000.00</Salary>
+  </Employee>
+  <Employee>
+    <EmployeeID>EMP1014</EmployeeID>
+    <UserID>U2014</UserID>
+    <Position>Senior Auditor</Position>
+    <BranchID>B003</BranchID>
+    <HireDate>2019-08-19</HireDate>
+    <Salary>95000.00</Salary>
+  </Employee>
+
+  <!-- HR Department -->
+  <Employee>
+    <EmployeeID>EMP1015</EmployeeID>
+    <UserID>U2015</UserID>
+    <Position>HR Coordinator</Position>
+    <BranchID>B005</BranchID>
+    <HireDate>2023-02-14</HireDate>
+    <Salary>52000.00</Salary>
+  </Employee>
+  <Employee>
+    <EmployeeID>EMP1016</EmployeeID>
+    <UserID>U2016</UserID>
+    <Position>HR Manager</Position>
+    <BranchID>B004</BranchID>
+    <HireDate>2020-09-01</HireDate>
+    <Salary>67000.00</Salary>
+  </Employee>
+
+  <!-- Security -->
+  <Employee>
+    <EmployeeID>EMP1017</EmployeeID>
+    <UserID>U2017</UserID>
+    <Position>Security Supervisor</Position>
+    <BranchID>B002</BranchID>
+    <HireDate>2017-05-30</HireDate>
+    <Salary>58000.00</Salary>
+  </Employee>
+  <Employee>
+    <EmployeeID>EMP1018</EmployeeID>
+    <UserID>U2018</UserID>
+    <Position>Cybersecurity Analyst</Position>
+    <BranchID>B001</BranchID>
+    <HireDate>2022-11-15</HireDate>
+    <Salary>89000.00</Salary>
+  </Employee>
+
+  <!-- Executive -->
+  <Employee>
+    <EmployeeID>EMP1019</EmployeeID>
+    <UserID>U2019</UserID>
+    <Position>Operations Manager</Position>
+    <BranchID>B005</BranchID>
+    <HireDate>2014-07-01</HireDate>
+    <Salary>115000.00</Salary>
+  </Employee>
+  <Employee>
+    <EmployeeID>EMP1020</EmployeeID>
+    <UserID>U2020</UserID>
+    <Position>Chief Financial Officer</Position>
+    <BranchID>HQ001</BranchID>
+    <HireDate>2012-01-10</HireDate>
+    <Salary>250000.00</Salary>
+  </Employee>
+</Employees>

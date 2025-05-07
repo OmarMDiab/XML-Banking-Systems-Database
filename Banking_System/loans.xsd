@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Loans">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Loan" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LoanID" type="xs:string"/>
+              <xs:element name="UserID" type="xs:string"/>
+              <xs:element name="LoanAmount" type="xs:decimal"/>
+              <xs:element name="InterestRate">
+                <xs:simpleType>
+                  <xs:restriction base="xs:decimal">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="20"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StartDate" type="xs:date"/>
+              <xs:element name="Duration" type="xs:string"/>
+              <xs:element name="Status" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

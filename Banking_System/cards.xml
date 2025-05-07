@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="cards.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<Cards>
+  <!-- Cards linked to Account ID 1001-1020 -->
+  <Card>
+    <CardID>CARD1001</CardID>
+    <AccountID>ACC1001</AccountID>
+    <CardType>Visa</CardType>
+    <CardNumber>4111-1111-1111-1001</CardNumber>
+    <CVV>123</CVV>
+    <ExpiryDate>2025-12-31</ExpiryDate>
+    <Status>active</Status>
+  </Card>
+  
+  <Card>
+    <CardID>CARD1002</CardID>
+    <AccountID>ACC1002</AccountID>
+    <CardType>Mastercard</CardType>
+    <CardNumber>5555-2222-3333-1002</CardNumber>
+    <CVV>456</CVV>
+    <ExpiryDate>2024-11-30</ExpiryDate>
+    <Status>expired</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1003</CardID>
+    <AccountID>ACC1003</AccountID>
+    <CardType>Amex</CardType>
+    <CardNumber>3400-456789-10003</CardNumber>
+    <CVV>7890</CVV>
+    <ExpiryDate>2027-10-31</ExpiryDate>
+    <Status>blocked</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1004</CardID>
+    <AccountID>ACC1004</AccountID>
+    <CardType>Visa</CardType>
+    <CardNumber>4012-8888-8888-1881</CardNumber>
+    <CVV>234</CVV>
+    <ExpiryDate>2028-09-30</ExpiryDate>
+    <Status>active</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1005</CardID>
+    <AccountID>ACC1005</AccountID>
+    <CardType>Mastercard</CardType>
+    <CardNumber>5555-4444-3333-1005</CardNumber>
+    <CVV>567</CVV>
+    <ExpiryDate>2025-08-15</ExpiryDate>
+    <Status>active</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1006</CardID>
+    <AccountID>ACC1006</AccountID>
+    <CardType>Visa</CardType>
+    <CardNumber>4929-7654-3210-1006</CardNumber>
+    <CVV>890</CVV>
+    <ExpiryDate>2026-07-01</ExpiryDate>
+    <Status>active</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1007</CardID>
+    <AccountID>ACC1007</AccountID>
+    <CardType>Amex</CardType>
+    <CardNumber>3782-822463-10007</CardNumber>
+    <CVV>1234</CVV>
+    <ExpiryDate>2024-06-30</ExpiryDate>
+    <Status>expired</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1008</CardID>
+    <AccountID>ACC1008</AccountID>
+    <CardType>Mastercard</CardType>
+    <CardNumber>5555-6666-7777-1008</CardNumber>
+    <CVV>345</CVV>
+    <ExpiryDate>2028-05-31</ExpiryDate>
+    <Status>blocked</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1009</CardID>
+    <AccountID>ACC1009</AccountID>
+    <CardType>Visa</CardType>
+    <CardNumber>4485-3298-7654-1009</CardNumber>
+    <CVV>678</CVV>
+    <ExpiryDate>2025-04-30</ExpiryDate>
+    <Status>active</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1010</CardID>
+    <AccountID>ACC1010</AccountID>
+    <CardType>Mastercard</CardType>
+    <CardNumber>5555-1234-5678-1010</CardNumber>
+    <CVV>901</CVV>
+    <ExpiryDate>2026-03-31</ExpiryDate>
+    <Status>blocked</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1011</CardID>
+    <AccountID>ACC1011</AccountID>
+    <CardType>Visa</CardType>
+    <CardNumber>4117-3535-6565-1011</CardNumber>
+    <CVV>234</CVV>
+    <ExpiryDate>2027-02-28</ExpiryDate>
+    <Status>active</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1012</CardID>
+    <AccountID>ACC1012</AccountID>
+    <CardType>Amex</CardType>
+    <CardNumber>3714-496753-10112</CardNumber>
+    <CVV>5678</CVV>
+    <ExpiryDate>2024-01-31</ExpiryDate>
+    <Status>expired</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1013</CardID>
+    <AccountID>ACC1013</AccountID>
+    <CardType>Mastercard</CardType>
+    <CardNumber>5555-9876-5432-1013</CardNumber>
+    <CVV>890</CVV>
+    <ExpiryDate>2025-12-31</ExpiryDate>
+    <Status>blocked</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1014</CardID>
+    <AccountID>ACC1014</AccountID>
+    <CardType>Visa</CardType>
+    <CardNumber>4988-7654-3210-1014</CardNumber>
+    <CVV>123</CVV>
+    <ExpiryDate>2026-11-30</ExpiryDate>
+    <Status>active</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1015</CardID>
+    <AccountID>ACC1015</AccountID>
+    <CardType>Mastercard</CardType>
+    <CardNumber>5555-1122-3344-1015</CardNumber>
+    <CVV>456</CVV>
+    <ExpiryDate>2027-10-31</ExpiryDate>
+    <Status>active</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1016</CardID>
+    <AccountID>ACC1016</AccountID>
+    <CardType>Visa</CardType>
+    <CardNumber>4222-3333-4444-1016</CardNumber>
+    <CVV>789</CVV>
+    <ExpiryDate>2028-09-30</ExpiryDate>
+    <Status>blocked</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1017</CardID>
+    <AccountID>ACC1017</AccountID>
+    <CardType>Amex</CardType>
+    <CardNumber>3478-912345-10117</CardNumber>
+    <CVV>2345</CVV>
+    <ExpiryDate>2024-08-31</ExpiryDate>
+    <Status>expired</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1018</CardID>
+    <AccountID>ACC1018</AccountID>
+    <CardType>Mastercard</CardType>
+    <CardNumber>5555-5566-7788-1018</CardNumber>
+    <CVV>012</CVV>
+    <ExpiryDate>2026-07-31</ExpiryDate>
+    <Status>blocked</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1019</CardID>
+    <AccountID>ACC1019</AccountID>
+    <CardType>Visa</CardType>
+    <CardNumber>4556-7890-1234-1019</CardNumber>
+    <CVV>345</CVV>
+    <ExpiryDate>2027-06-30</ExpiryDate>
+    <Status>active</Status>
+  </Card>
+
+  <Card>
+    <CardID>CARD1020</CardID>
+    <AccountID>ACC1020</AccountID>
+    <CardType>Mastercard</CardType>
+    <CardNumber>5555-6677-8899-1020</CardNumber>
+    <CVV>678</CVV>
+    <ExpiryDate>2028-05-31</ExpiryDate>
+    <Status>active</Status>
+  </Card>
+</Cards>

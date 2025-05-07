@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="loans.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+
+<Loans>
+  <!-- User 1001 Loans -->
+  <Loan>
+    <LoanID>LOAN1001</LoanID>
+    <UserID>U1001</UserID>
+    <LoanAmount>25000.00</LoanAmount>
+    <InterestRate>7.5</InterestRate>
+    <StartDate>2022-03-15</StartDate>
+    <Duration>36 months</Duration>
+    <Status>requested</Status>
+  </Loan>
+  
+  <Loan>
+    <LoanID>LOAN1002</LoanID>
+    <UserID>U1001</UserID>
+    <LoanAmount>15000.00</LoanAmount>
+    <InterestRate>9.9</InterestRate>
+    <StartDate>2023-01-10</StartDate>
+    <Duration>24 months</Duration>
+    <Status>paid</Status>
+  </Loan>
+
+  <!-- User 1002 Loans -->
+  <Loan>
+    <LoanID>LOAN1003</LoanID>
+    <UserID>U1002</UserID>
+    <LoanAmount>200000.00</LoanAmount>
+    <InterestRate>3.8</InterestRate>
+    <StartDate>2021-06-01</StartDate>
+    <Duration>30 years</Duration>
+    <Status>requested</Status>
+  </Loan>
+  <Loan>
+    <LoanID>LOAN1004</LoanID>
+    <UserID>U1002</UserID>
+    <LoanAmount>5000.00</LoanAmount>
+    <InterestRate>12.5</InterestRate>
+    <StartDate>2023-08-15</StartDate>
+    <Duration>12 months</Duration>
+    <Status>approved</Status>
+  </Loan>
+
+  <!-- User 1003 Loans -->
+  <Loan>
+    <LoanID>LOAN1005</LoanID>
+    <UserID>U1003</UserID>
+    <LoanAmount>35000.00</LoanAmount>
+    <InterestRate>6.2</InterestRate>
+    <StartDate>2022-11-30</StartDate>
+    <Duration>60 months</Duration>
+    <Status>requested</Status>
+  </Loan>
+  <Loan>
+    <LoanID>LOAN1006</LoanID>
+    <UserID>U1003</UserID>
+    <LoanAmount>10000.00</LoanAmount>
+    <InterestRate>8.0</InterestRate>
+    <StartDate>2020-05-01</StartDate>
+    <Duration>36 months</Duration>
+    <Status>paid</Status>
+  </Loan>
+
+  <!-- User 1004 Loans -->
+  <Loan>
+    <LoanID>LOAN1007</LoanID>
+    <UserID>U1004</UserID>
+    <LoanAmount>150000.00</LoanAmount>
+    <InterestRate>4.2</InterestRate>
+    <StartDate>2023-02-14</StartDate>
+    <Duration>25 years</Duration>
+    <Status>approved</Status>
+  </Loan>
+  <Loan>
+    <LoanID>LOAN1008</LoanID>
+    <UserID>U1004</UserID>
+    <LoanAmount>7500.00</LoanAmount>
+    <InterestRate>15.0</InterestRate>
+    <StartDate>2021-09-01</StartDate>
+    <Duration>18 months</Duration>
+    <Status>paid</Status>
+  </Loan>
+
+  <!-- User 1005 Loans -->
+  <Loan>
+    <LoanID>LOAN1009</LoanID>
+    <UserID>U1005</UserID>
+    <LoanAmount>45000.00</LoanAmount>
+    <InterestRate>5.5</InterestRate>
+    <StartDate>2023-04-20</StartDate>
+    <Duration>48 months</Duration>
+    <Status>requested</Status>
+  </Loan>
+  <Loan>
+    <LoanID>LOAN1010</LoanID>
+    <UserID>U1005</UserID>
+    <LoanAmount>2000.00</LoanAmount>
+    <InterestRate>18.0</InterestRate>
+    <StartDate>2022-12-05</StartDate>
+    <Duration>6 months</Duration>
+    <Status>approved</Status>
+  </Loan>
+
+  <!-- User 1006 Loans -->
+  <Loan>
+    <LoanID>LOAN1011</LoanID>
+    <UserID>U1006</UserID>
+    <LoanAmount>80000.00</LoanAmount>
+    <InterestRate>2.9</InterestRate>
+    <StartDate>2020-07-15</StartDate>
+    <Duration>15 years</Duration>
+    <Status>paid</Status>
+  </Loan>
+  <Loan>
+    <LoanID>LOAN1012</LoanID>
+    <UserID>U1006</UserID>
+    <LoanAmount>30000.00</LoanAmount>
+    <InterestRate>6.8</InterestRate>
+    <StartDate>2023-07-01</StartDate>
+    <Duration>36 months</Duration>
+    <Status>requested</Status>
+  </Loan>
+
+  <!-- User 1007 Loans -->
+  <Loan>
+    <LoanID>LOAN1013</LoanID>
+    <UserID>U1007</UserID>
+    <LoanAmount>95000.00</LoanAmount>
+    <InterestRate>3.5</InterestRate>
+    <StartDate>2021-04-01</StartDate>
+    <Duration>20 years</Duration>
+    <Status>requested</Status>
+  </Loan>
+  <Loan>
+    <LoanID>LOAN1014</LoanID>
+    <UserID>U1007</UserID>
+    <LoanAmount>12000.00</LoanAmount>
+    <InterestRate>11.5</InterestRate>
+    <StartDate>2023-09-10</StartDate>
+    <Duration>24 months</Duration>
+    <Status>approved</Status>
+  </Loan>
+
+  <!-- User 1008 Loans -->
+  <Loan>
+    <LoanID>LOAN1015</LoanID>
+    <UserID>U1008</UserID>
+    <LoanAmount>60000.00</LoanAmount>
+    <InterestRate>4.8</InterestRate>
+    <StartDate>2022-08-22</StartDate>
+    <Duration>84 months</Duration>
+    <Status>requested</Status>
+  </Loan>
+  <Loan>
+    <LoanID>LOAN1016</LoanID>
+    <UserID>U1008</UserID>
+    <LoanAmount>2500.00</LoanAmount>
+    <InterestRate>14.9</InterestRate>
+    <StartDate>2021-11-30</StartDate>
+    <Duration>12 months</Duration>
+    <Status>paid</Status>
+  </Loan>
+
+  <!-- User 1009 Loans -->
+  <Loan>
+    <LoanID>LOAN1017</LoanID>
+    <UserID>U1009</UserID>
+    <LoanAmount>175000.00</LoanAmount>
+    <InterestRate>3.2</InterestRate>
+    <StartDate>2023-05-05</StartDate>
+    <Duration>30 years</Duration>
+    <Status>approved</Status>
+  </Loan>
+  <Loan>
+    <LoanID>LOAN1018</LoanID>
+    <UserID>U1009</UserID>
+    <LoanAmount>7000.00</LoanAmount>
+    <InterestRate>10.5</InterestRate>
+    <StartDate>2022-06-15</StartDate>
+    <Duration>18 months</Duration>
+    <Status>approved</Status>
+  </Loan>
+
+  <!-- User 1010 Loans -->
+  <Loan>
+    <LoanID>LOAN1019</LoanID>
+    <UserID>U1010</UserID>
+    <LoanAmount>500000.00</LoanAmount>
+    <InterestRate>4.0</InterestRate>
+    <StartDate>2020-01-10</StartDate>
+    <Duration>25 years</Duration>
+    <Status>requested</Status>
+  </Loan>
+  
+  <Loan>
+    <LoanID>LOAN1020</LoanID>
+    <UserID>U1010</UserID>
+    <LoanAmount>15000.00</LoanAmount>
+    <InterestRate>8.5</InterestRate>
+    <StartDate>2023-10-01</StartDate>
+    <Duration>36 months</Duration>
+    <Status>requested</Status>
+  </Loan>
+</Loans>

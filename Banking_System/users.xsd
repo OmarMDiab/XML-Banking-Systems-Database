@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Users">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="User" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="UserID" type="xs:string"/>
+              <xs:element name="FullName" type="xs:string"/>
+              <xs:element name="Email" type="xs:string"/>
+              <xs:element name="Phone" type="xs:string"/>
+              <xs:element name="Address">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Country" type="xs:string"/>
+                    <xs:element name="City" type="xs:string"/>
+                    <xs:element name="Street" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Role">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="customer"/>
+                    <xs:enumeration value="employee"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Username" type="xs:string"/>
+              <xs:element name="PasswordHash" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+          <xs:unique name="uniqueEmail">
+            <xs:selector xpath="."/>
+            <xs:field xpath="Email"/>
+          </xs:unique>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

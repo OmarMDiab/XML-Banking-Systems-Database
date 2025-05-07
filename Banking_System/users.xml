@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="users.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+
+<Users>
+  <!-- ================== CUSTOMERS ================== -->
+  <User>
+    <UserID>U1001</UserID>
+    <FullName>John Smith</FullName>
+    <Email>john.smith@gmail.com</Email>
+    <Phone>+1-555-123-4567</Phone>
+    <Address>
+      <Country>United States</Country>
+      <City>New York</City>
+      <Street>123 Main Street</Street>
+    </Address>
+    <Role>customer</Role>
+    <Username>jsmith</Username>
+    <PasswordHash>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U1002</UserID>
+    <FullName>Maria García</FullName>
+    <Email>maria.garcia@gmail.com</Email>
+    <Phone>+34-912-345-678</Phone>
+    <Address>
+      <Country>Spain</Country>
+      <City>Madrid</City>
+      <Street>Calle Gran Vía 45</Street>
+    </Address>
+    <Role>customer</Role>
+    <Username>mgarcia</Username>
+    <PasswordHash>6cf615d5bcaac778352a8f1f3360d23f02f34ec182e259897fd6ce485d7870d4</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U1003</UserID>
+    <FullName>Wei Chen</FullName>
+    <Email>wei.chen@gmail.com</Email>
+    <Phone>+86-10-5678-1234</Phone>
+    <Address>
+      <Country>China</Country>
+      <City>Beijing</City>
+      <Street>Dongcheng District 78</Street>
+    </Address>
+    <Role>customer</Role>
+    <Username>wchen</Username>
+    <PasswordHash>d3ab8b9f964a3ca5f5a7a699c2f088aacbec60f5987e7798e7d795b6a1acd6c1</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U1004</UserID>
+    <FullName>Olivia Müller</FullName>
+    <Email>olivia.muller@gmail.com</Email>
+    <Phone>+49-30-1234-5678</Phone>
+    <Address>
+      <Country>Germany</Country>
+      <City>Berlin</City>
+      <Street>Unter den Linden 12</Street>
+    </Address>
+    <Role>customer</Role>
+    <Username>omuller</Username>
+    <PasswordHash>f3abbcbd7c1ee7b4f90f6b3a3b546a3e6c7b8a5d8c3e4f5a6b7c8d9e0f1a2b</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U1005</UserID>
+    <FullName>Ahmed Hassan</FullName>
+    <Email>ahmed.hassan@gmail.com</Email>
+    <Phone>+971-4-555-1234</Phone>
+    <Address>
+      <Country>UAE</Country>
+      <City>Dubai</City>
+      <Street>Sheikh Zayed Road 1501</Street>
+    </Address>
+    <Role>customer</Role>
+    <Username>ahassan</Username>
+    <PasswordHash>98d9b9d9a9c9b9e9d9f9a9b9c9d9e9f9a9b9c9d9e9f9a9b9c9d9e9f9a9b9c9d9</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U1006</UserID>
+    <FullName>Sophie Dubois</FullName>
+    <Email>sophie.dubois@gmail.com</Email>
+    <Phone>+33-1-2345-6789</Phone>
+    <Address>
+      <Country>France</Country>
+      <City>Paris</City>
+      <Street>Rue de Rivoli 32</Street>
+    </Address>
+    <Role>customer</Role>
+    <Username>sdubois</Username>
+    <PasswordHash>1b4f0e9851971998e732078544c96b36c3d01cedf7ca6233327e3f4a9b3b319a</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U1007</UserID>
+    <FullName>Carlos Silva</FullName>
+    <Email>carlos.silva@gmail.com</Email>
+    <Phone>+55-11-9876-5432</Phone>
+    <Address>
+      <Country>Brazil</Country>
+      <City>São Paulo</City>
+      <Street>Avenida Paulista 1000</Street>
+    </Address>
+    <Role>customer</Role>
+    <Username>csilva</Username>
+    <PasswordHash>a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U1008</UserID>
+    <FullName>Yuki Tanaka</FullName>
+    <Email>yuki.tanaka@gmail.com</Email>
+    <Phone>+81-3-4567-8901</Phone>
+    <Address>
+      <Country>Japan</Country>
+      <City>Tokyo</City>
+      <Street>Shinjuku 1-2-3</Street>
+    </Address>
+    <Role>customer</Role>
+    <Username>ytanaka</Username>
+    <PasswordHash>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U1009</UserID>
+    <FullName>Emma Wilson</FullName>
+    <Email>emma.wilson@gmail.com</Email>
+    <Phone>+44-20-7123-4567</Phone>
+    <Address>
+      <Country>UK</Country>
+      <City>London</City>
+      <Street>Baker Street 221B</Street>
+    </Address>
+    <Role>customer</Role>
+    <Username>ewilson</Username>
+    <PasswordHash>d3ab8b9f964a3ca5f5a7a699c2f088aacbec60f5987e7798e7d795b6a1acd6c1</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U1010</UserID>
+    <FullName>Raj Patel</FullName>
+    <Email>raj.patel@gmail.com</Email>
+    <Phone>+91-22-6789-1234</Phone>
+    <Address>
+      <Country>India</Country>
+      <City>Mumbai</City>
+      <Street>Marine Drive 45</Street>
+    </Address>
+    <Role>customer</Role>
+    <Username>rpatel</Username>
+    <PasswordHash>6cf615d5bcaac778352a8f1f3360d23f02f34ec182e259897fd6ce485d7870d4</PasswordHash>
+  </User>
+
+  <!-- ================== EMPLOYEES ================== -->
+  <User>
+    <UserID>U2001</UserID>
+    <FullName>Michael Brown</FullName>
+    <Email>michael.brown@bank.com</Email>
+    <Phone>+1-555-987-6543</Phone>
+    <Address>
+      <Country>USA</Country>
+      <City>Chicago</City>
+      <Street>456 Finance Avenue</Street>
+    </Address>
+    <Role>employee</Role>
+    <Username>mbrown</Username>
+    <PasswordHash>1b4f0e9851971998e732078544c96b36c3d01cedf7ca6233327e3f4a9b3b319a</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U2002</UserID>
+    <FullName>Sophia Kim</FullName>
+    <Email>sophia.kim@bank.com</Email>
+    <Phone>+82-2-3456-7890</Phone>
+    <Address>
+      <Country>South Korea</Country>
+      <City>Seoul</City>
+      <Street>Gangnam-gu 123</Street>
+    </Address>
+    <Role>employee</Role>
+    <Username>skim</Username>
+    <PasswordHash>a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U2003</UserID>
+    <FullName>Luigi Rossi</FullName>
+    <Email>luigi.rossi@bank.com</Email>
+    <Phone>+39-06-1234-5678</Phone>
+    <Address>
+      <Country>Italy</Country>
+      <City>Rome</City>
+      <Street>Via Veneto 155</Street>
+    </Address>
+    <Role>employee</Role>
+    <Username>lrossi</Username>
+    <PasswordHash>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U2004</UserID>
+    <FullName>Anika Singh</FullName>
+    <Email>anika.singh@bank.com</Email>
+    <Phone>+65-6123-4567</Phone>
+    <Address>
+      <Country>Singapore</Country>
+      <City>Singapore</City>
+      <Street>Raffles Place 1</Street>
+    </Address>
+    <Role>employee</Role>
+    <Username>asingh</Username>
+    <PasswordHash>d3ab8b9f964a3ca5f5a7a699c2f088aacbec60f5987e7798e7d795b6a1acd6c1</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U2005</UserID>
+    <FullName>James Wilson</FullName>
+    <Email>james.wilson@bank.com</Email>
+    <Phone>+61-2-8765-4321</Phone>
+    <Address>
+      <Country>Australia</Country>
+      <City>Sydney</City>
+      <Street>George Street 100</Street>
+    </Address>
+    <Role>employee</Role>
+    <Username>jwilson</Username>
+    <PasswordHash>6cf615d5bcaac778352a8f1f3360d23f02f34ec182e259897fd6ce485d7870d4</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U2006</UserID>
+    <FullName>Fatima Al-Mansoori</FullName>
+    <Email>fatima.alm@bank.com</Email>
+    <Phone>+968-24-123-4567</Phone>
+    <Address>
+      <Country>Oman</Country>
+      <City>Muscat</City>
+      <Street>Sultan Qaboos Street 45</Street>
+    </Address>
+    <Role>employee</Role>
+    <Username>falmansoori</Username>
+    <PasswordHash>f3abbcbd7c1ee7b4f90f6b3a3b546a3e6c7b8a5d8c3e4f5a6b7c8d9e0f1a2b</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U2007</UserID>
+    <FullName>Elena Ivanova</FullName>
+    <Email>elena.ivanova@bank.com</Email>
+    <Phone>+7-495-987-6543</Phone>
+    <Address>
+      <Country>Russia</Country>
+      <City>Moscow</City>
+      <Street>Tverskaya Street 15</Street>
+    </Address>
+    <Role>employee</Role>
+    <Username>eivanova</Username>
+    <PasswordHash>98d9b9d9a9c9b9e9d9f9a9b9c9d9e9f9a9b9c9d9e9f9a9b9c9d9e9f9a9b9c9d9</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U2008</UserID>
+    <FullName>Carlos Mendez</FullName>
+    <Email>carlos.mendez@bank.com</Email>
+    <Phone>+52-55-1122-3344</Phone>
+    <Address>
+      <Country>Mexico</Country>
+      <City>Mexico City</City>
+      <Street>Paseo de la Reforma 505</Street>
+    </Address>
+    <Role>employee</Role>
+    <Username>cmendez</Username>
+    <PasswordHash>1b4f0e9851971998e732078544c96b36c3d01cedf7ca6233327e3f4a9b3b319a</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U2009</UserID>
+    <FullName>Nadia Van der Merwe</FullName>
+    <Email>nadia.vdm@bank.com</Email>
+    <Phone>+27-11-234-5678</Phone>
+    <Address>
+      <Country>South Africa</Country>
+      <City>Johannesburg</City>
+      <Street>Maude Street 12</Street>
+    </Address>
+    <Role>employee</Role>
+    <Username>nvandermerwe</Username>
+    <PasswordHash>a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3</PasswordHash>
+  </User>
+
+  <User>
+    <UserID>U2010</UserID>
+    <FullName>Lars Nielsen</FullName>
+    <Email>lars.nielsen@bank.com</Email>
+    <Phone>+45-32-12-34-56</Phone>
+    <Address>
+      <Country>Denmark</Country>
+      <City>Copenhagen</City>
+      <Street>Strøget 5</Street>
+    </Address>
+    <Role>employee</Role>
+    <Username>lnielsen</Username>
+    <PasswordHash>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</PasswordHash>
+  </User>
+  <!--extra user for employees-->
+<User><UserID>U2011</UserID><FullName>Fatma Mohamed</FullName><Email>fatma.mohamed2011@bank.com</Email><Phone>+20-10-2011</Phone><Address><Country>Egypt</Country><City>Giza</City><Street>شارع الثورة 11</Street></Address><Role>employee</Role><Username>fmohamed2011</Username><PasswordHash>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</PasswordHash></User><User><UserID>U2012</UserID><FullName>Ahmed Hassan</FullName><Email>ahmed.hassan2012@bank.com</Email><Phone>+20-10-2012</Phone><Address><Country>Egypt</Country><City/><Street>شارع الثورة 12</Street></Address><Role>employee</Role><Username>2012</Username><PasswordHash>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</PasswordHash></User><User><UserID>U2013</UserID><FullName>Sara Ali</FullName><Email>sara.ali2013@bank.com</Email><Phone>+20-10-2013</Phone><Address><Country>Egypt</Country><City/><Street>شارع الثورة 13</Street></Address><Role>employee</Role><Username>2013</Username><PasswordHash>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</PasswordHash></User><User><UserID>U2014</UserID><FullName>Mahmoud Youssef</FullName><Email>mahmoud.youssef2014@bank.com</Email><Phone>+20-10-2014</Phone><Address><Country>Egypt</Country><City/><Street>شارع الثورة 14</Street></Address><Role>employee</Role><Username>2014</Username><PasswordHash>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</PasswordHash></User><User><UserID>U2015</UserID><FullName>Mariam Ibrahim</FullName><Email>mariam.ibrahim2015@bank.com</Email><Phone>+20-10-2015</Phone><Address><Country>Egypt</Country><City/><Street>شارع الثورة 15</Street></Address><Role>employee</Role><Username>2015</Username><PasswordHash>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</PasswordHash></User><User><UserID>U2016</UserID><FullName>Omar Tarek</FullName><Email>omar.tarek2016@bank.com</Email><Phone>+20-10-2016</Phone><Address><Country>Egypt</Country><City/><Street>شارع الثورة 16</Street></Address><Role>employee</Role><Username>2016</Username><PasswordHash>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</PasswordHash></User><User><UserID>U2017</UserID><FullName>Yasmine Adel</FullName><Email>yasmine.adel2017@bank.com</Email><Phone>+20-10-2017</Phone><Address><Country>Egypt</Country><City/><Street>شارع الثورة 17</Street></Address><Role>employee</Role><Username>2017</Username><PasswordHash>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</PasswordHash></User><User><UserID>U2018</UserID><FullName>Hany Mostafa</FullName><Email>hany.mostafa2018@bank.com</Email><Phone>+20-10-2018</Phone><Address><Country>Egypt</Country><City/><Street>شارع الثورة 18</Street></Address><Role>employee</Role><Username>2018</Username><PasswordHash>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</PasswordHash></User><User><UserID>U2019</UserID><FullName>Dina Khaled</FullName><Email>dina.khaled2019@bank.com</Email><Phone>+20-10-2019</Phone><Address><Country>Egypt</Country><City/><Street>شارع الثورة 19</Street></Address><Role>employee</Role><Username>2019</Username><PasswordHash>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</PasswordHash></User><User><UserID>U2020</UserID><FullName>Mostafa Kamal</FullName><Email>mostafa.kamal2020@bank.com</Email><Phone>+20-10-2020</Phone><Address><Country>Egypt</Country><City/><Street>شارع الثورة 20</Street></Address><Role>employee</Role><Username>2020</Username><PasswordHash>5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</PasswordHash></User>
+</Users>
