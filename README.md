@@ -35,6 +35,7 @@ Once BaseX is running, the banking database should already be populated and read
 
 #### Install dependencies: -
 - **Python 3.8+**
+- And install the dependencies
 ```bash
 pip install -r requirements.txt
 ```
