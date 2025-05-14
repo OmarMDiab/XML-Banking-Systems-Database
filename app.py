@@ -5,7 +5,7 @@ from decimal import Decimal
 import pandas as pd
 import random
 from datetime import datetime
-import pandas as pd
+
 # Initialize banking system
 # Check for database credentials in session state
 if 'db_creds' not in st.session_state:
@@ -138,7 +138,7 @@ if section == "Dashboard":
     
     with col3:
         st.subheader("Transactions")
-        transactions = bank.get_largest_transactions(5)
+        transactions = bank.get_largest_transactions(-1)
         st.metric("Total Transactions", len(transactions))
 
     with col4:
@@ -148,7 +148,7 @@ if section == "Dashboard":
 
     st.divider()
     st.subheader("Recent Activities")
-    transactions = bank.get_largest_transactions(10)
+    transactions = bank.get_largest_transactions(-1)
     st.dataframe(pd.DataFrame(transactions), use_container_width=True)
 
 elif section == "Customer Management":
@@ -368,7 +368,11 @@ elif section == "Account Operations":
 
 elif section == "Transaction Processing":
     st.title("Transaction Processing")
-    tab1, tab2 = st.tabs(["New Transaction", "Transactions Database & Overview"])
+    tab1, tab2, tab3 = st.tabs([
+        "New Transaction",
+        "Transactions Database & Overview",
+        "Transaction Monitoring"
+    ])
     
     with tab1:
         st.subheader("New Transaction")
@@ -388,7 +392,7 @@ elif section == "Transaction Processing":
                     "Type": tx_type
                 })
                 display_result(result)
-    
+
     with tab2:
         st.subheader("Transactions Database & Overview")
         transactions = bank.get_all_transactions()
@@ -414,18 +418,30 @@ elif section == "Transaction Processing":
                 st.info("No numeric data available for statistics.")
         else:
             st.info("No transactions found in the database.")
-                
-    # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    # with col2:
-    #     st.subheader("Transaction Monitoring")
-    #     threshold = st.number_input("Set Alert Threshold", min_value=1000.0)
-    #     if threshold:
-    #         alerts = bank.detect_high_value_transactions(Decimal(threshold))
-    #         if alerts:
-    #             st.warning(f"High Value Transactions (> {threshold})")
-    #             st.dataframe(pd.DataFrame(alerts), use_container_width=True)
-    #         else:
-    #             st.info("No high value transactions detected")
+
+    with tab3:
+        st.subheader("Transaction Monitoring")
+        threshold = st.number_input("Set Alert Threshold", min_value=1000.0, value=5000.0)
+        time_unit = st.selectbox("Select Time Unit", ["days", "months", "years"], index=0)
+        time_period = st.number_input("Set Time Period", min_value=1, value=7)
+
+        # Convert the time period to days
+        if time_unit == "months":
+            time_period_in_days = time_period * 30  # Approximation: 1 month = 30 days
+        elif time_unit == "years":
+            time_period_in_days = time_period * 365  # Approximation: 1 year = 365 days
+        else:
+            time_period_in_days = time_period
+
+        if threshold and time_period_in_days:
+            from decimal import Decimal
+            alerts = bank.detect_high_value_transactions(Decimal(threshold), days=int(time_period_in_days))
+            if alerts:
+                st.warning(f"High Value Transactions (> {threshold}) in the last {time_period} {time_unit}")
+                st.dataframe(pd.DataFrame(alerts), use_container_width=True)
+            else:
+                st.info(f"No high value transactions detected in the last {time_period} {time_unit}.")
+
 
 elif section == "Loan Administration":
     st.title("Loan Management")
@@ -645,7 +661,7 @@ elif section == "Employee Management":
                 "Teller", "Loan Officer", "Manager", "Financial Advisor"
             ])
             branch_id = st.text_input("Branch ID")
-            salary = st.number_input("Salary", min_value=30000)
+            salary = st.number_input("Salary", min_value=2000)
             
             if st.form_submit_button("Create Employee Record"):
                 # Validate user fields
@@ -741,7 +757,7 @@ elif section == "Analytics & Reports":
 
         with col3:
             st.subheader("Transactions")
-            transactions = bank.get_largest_transactions(5)
+            transactions = bank.get_largest_transactions(-1)
             st.metric("Total Transactions", len(transactions))
 
         with col4:

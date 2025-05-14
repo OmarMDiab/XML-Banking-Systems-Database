@@ -28,14 +28,15 @@ The extracted `basex` folder contains everything you need to run BaseX.
   2. Double-click on `BaseXServer.bat` to start the BaseX server.
   3. Optionally, you can open `BaseX.bat` to launch the BaseX graphical user interface (GUI) for easier interaction.
 
-
 ### 3. Load the Database
 
 Once BaseX is running, the banking database should already be populated and ready to use.
 
 #### Install dependencies: -
+
 - **Python 3.8+**
 - And install the dependencies
+
 ```bash
 pip install -r requirements.txt
 ```

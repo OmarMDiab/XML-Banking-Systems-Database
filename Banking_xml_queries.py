@@ -121,19 +121,76 @@ class BankingXMLQueries:
             return False, f"XSD file not found: {xsd_path}"
         except Exception as e:
             return False, f"Generic XSD Validation Error: {e}"
+        
+    def validate_user_data(self, user_data: Dict) -> Optional[str]:
+        required = ['FullName', 'Email', 'Phone', 'Address', 'Role', 'Username', 'PasswordHash']
+        missing = [f for f in required if f not in user_data]
+        if missing:
+            return f"Error: Missing required user fields: {', '.join(missing)}"
+
+        address = user_data.get('Address')
+        if not isinstance(address, dict) or not all(k in address for k in ['Country', 'City', 'Street']):
+            return "Error: Missing or incomplete Address fields (Country, City, Street required)"
+        
+        # Validate address fields
+        for k in ['Country', 'City']:
+            val = address.get(k)
+            if not isinstance(val, str) or not val.strip():
+                return f"Error: {k} must be a non-empty string"
+            # Country and City should only contain letters and spaces
+            if not re.match(r"^[A-Za-z\s]+$", val.strip()):
+                return f"Error: {k} must only contain letters and spaces"
+
+        # Street can contain digits and letters
+        street = address.get('Street')
+        if not isinstance(street, str) or not street.strip():
+            return "Error: Street must be a non-empty string"
+        if street.strip().isdigit():
+            return "Error: Street cannot contain only digits"
+        
+        # Full name validation
+        full_name = user_data['FullName']
+        if not isinstance(full_name, str) or not full_name.strip() or full_name.isdigit():
+            return "Error: FullName must be a non-empty string and not only digits"
+
+        # Email validation
+        email = user_data['Email']
+        if not isinstance(email, str) or not re.match(r"[^@]+@[^@]+\.[^@]+", email):
+            return "Error: Invalid email format"
+
+        # Phone validation
+        phone = user_data['Phone']
+        if not isinstance(phone, str):
+            phone = str(phone)
+        if not re.match(r"^\+?\d{7,15}$", phone):
+            return "Error: Invalid phone number format"
+
+        # Role validation
+        role = user_data['Role']
+        if role not in ['customer', 'employee']:
+            return "Error: Role must be 'customer' or 'employee'"
+
+        # Username and Password validation
+        username = user_data['Username']
+        password_hash = user_data['PasswordHash']
+        if not isinstance(username, str) or not username.strip():
+            return "Error: Username must be a non-empty string"
+        if not isinstance(password_hash, str) or not password_hash.strip():
+            return "Error: PasswordHash must be a non-empty string"
+
+        return None  # No errors
+
 
     # ==============================================
     # CRUD Operations - Users (Keep existing XQuery implementations)
     # ==============================================
 
     def create_user(self, user_data: Dict) -> str:
-        required = ['FullName', 'Email', 'Phone', 'Address', 'Role', 'Username', 'PasswordHash']
-        missing = [f for f in required if f not in user_data]
-        if missing:
-            return f"Error: Missing required user fields: {', '.join(missing)}"
-        if not isinstance(user_data.get('Address'), dict) or not all(k in user_data['Address'] for k in ['Country', 'City', 'Street']):
-            return "Error: Missing or incomplete Address fields (Country, City, Street required)"
-
+        # Validate user data
+        validation_error = self.validate_user_data(user_data)
+        if validation_error:
+            return validation_error
+        
         user_id = user_data.get("UserID", f"USER-{uuid.uuid4().hex[:8].upper()}")
         full_name = user_data["FullName"]
         email = user_data["Email"]
@@ -208,6 +265,13 @@ class BankingXMLQueries:
                 session.close()
 
     def update_user(self, user_id: str, update_data: Dict) -> str:
+        # Validate user data
+        validation_error = self.validate_user_data(update_data)
+        if validation_error:
+            return validation_error
+
+
+
         new_email = update_data.get("Email")
         new_fullname = update_data.get("FullName")
         new_phone = update_data.get("Phone")
@@ -220,10 +284,7 @@ class BankingXMLQueries:
                                                  # For this example, we'll assume it's part of the full replacement.
         new_password_hash = update_data.get("PasswordHash")
 
-        # Validate all fields are provided for full node replacement
-        if not all([new_fullname, new_email, new_phone, new_country, new_city, new_street, new_role, new_username, new_password_hash]):
-            return "Error: All fields (FullName, Email, Phone, Address with Country/City/Street, Role, Username, PasswordHash) must be provided for user update."
-
+       
         # Construct the new User XML node based on input
         # This node should also be validated against users.xsd if it's significantly different from creation
         updated_user_xml_node = f'''
@@ -268,7 +329,7 @@ class BankingXMLQueries:
                     return f"Email '{new_email}' already exists for another user. Please choose a different email."
 
             # Step 3: Check if the new username already exists for another user (if username can be updated)
-            if new_username: # Assuming username can be part of the update
+            if new_username: 
                 username_conflict_query = f'''
                 XQUERY exists(doc("{self.db_name}/users.xml")//User[Username="{new_username}" and UserID!="{user_id}"])
                 '''
@@ -296,12 +357,50 @@ class BankingXMLQueries:
     # ==============================================
     # CRUD Operations - Accounts (Keep existing XQuery implementations)
     # ==============================================
-    def create_account(self, account_data: Dict) -> str:
+
+
+    def validate_account_data(self, account_data: Dict) -> Optional[str]:
         required = ['UserID', 'AccountType', 'Balance', 'Currency']
         missing = [f for f in required if f not in account_data]
         if missing:
             return f"Error: Missing required account fields: {', '.join(missing)}"
 
+        # Validate UserID
+        if not isinstance(account_data['UserID'], str) or not account_data['UserID'].strip():
+            return "Error: UserID must be a non-empty string."
+
+        # Validate AccountType
+        if not isinstance(account_data['AccountType'], str) or account_data['AccountType'].lower() not in ['checking', 'savings', 'business']:
+            return "Error: AccountType must be one of ['checking', 'savings', 'business']."
+
+        # Validate Balance
+        try:
+            Decimal(account_data['Balance'])
+        except Exception:
+            return "Error: Invalid Balance format. Expected a numeric value."
+
+        # Validate Currency (optional: limit to ISO codes)
+        if not isinstance(account_data['Currency'], str) or len(account_data['Currency']) != 3:
+            return "Error: Currency must be a 3-letter ISO code string (e.g., 'USD')."
+
+        # Validate OpenDate if present
+        open_date = account_data.get('OpenDate')
+        if open_date:
+            try:
+                datetime.strptime(open_date.split('T')[0], '%Y-%m-%d')
+            except Exception:
+                return "Error: Invalid OpenDate format. Expected YYYY-MM-DD."
+
+       
+
+        return None  # All checks passed
+ 
+    def create_account(self, account_data: Dict) -> str:
+        # Validate account data
+        validation_error = self.validate_account_data(account_data)
+        if validation_error:
+            return validation_error
+        
         account_id = account_data.get('AccountID', f"ACC-{uuid.uuid4().hex[:8].upper()}")
         user_id = account_data['UserID']
         account_type = account_data['AccountType']
@@ -440,19 +539,56 @@ class BankingXMLQueries:
     # ==============================================
     # CRUD Operations - Transactions (Keep existing XQuery implementations)
     # ==============================================
-    def create_transaction(self, transaction_data: Dict) -> str:
+    def validate_transaction_data(self, transaction_data: Dict) -> Optional[str]:
         required = ['FromAccountID', 'ToAccountID', 'Amount', 'Type']
         missing = [f for f in required if f not in transaction_data]
         if missing:
             return f"Error: Missing required transaction fields: {', '.join(missing)}"
+
+        # Validate FromAccountID and ToAccountID
+        if not all(isinstance(transaction_data[key], str) and transaction_data[key].strip()
+                for key in ['FromAccountID', 'ToAccountID']):
+            return "Error: FromAccountID and ToAccountID must be non-empty strings."
+
+        # Validate Amount
+        try:
+            Decimal(transaction_data['Amount'])
+        except Exception:
+            return "Error: Invalid Amount format. Expected a numeric value."
+
+        # Validate Timestamp (optional)
+        timestamp_str = transaction_data.get('Timestamp')
+        if timestamp_str:
+            try:
+                datetime.fromisoformat(timestamp_str.replace("Z", "+00:00"))
+            except Exception:
+                return "Error: Invalid Timestamp format. Expected ISO 8601 format."
+
+        return None  # All validations passed
+
+
+
+
+    def create_transaction(self, transaction_data: Dict) -> str:
+    #    validate transaction data
+        validation_error = self.validate_transaction_data(transaction_data)
+        if validation_error:
+            return validation_error
+        # validate that from and to account are not the same
+        if transaction_data['FromAccountID'] == transaction_data['ToAccountID']:
+            return "Error: FromAccountID and ToAccountID cannot be the same."
+        
 
         transaction_id = transaction_data.get('TransactionID', f"TX-{uuid.uuid4().hex[:8].upper()}")
         from_acc = transaction_data['FromAccountID']
         to_acc = transaction_data['ToAccountID']
         try:
             amount = str(Decimal(transaction_data['Amount']))
+            # round the decimal to 2 decimal places
+            amount = str(Decimal(amount).quantize(Decimal('0.01')))  # Round to 2 decimal places
         except Exception:
             return "Error: Invalid Amount format. Expected a number."
+      
         tx_type = transaction_data['Type']
         status = transaction_data.get('Status', 'completed')
 
@@ -561,13 +697,20 @@ class BankingXMLQueries:
         missing_fields = [f for f in required_fields if f not in loan_data]
         if missing_fields:
             return f"Error: Missing required loan fields: {', '.join(missing_fields)}"
-
+       
         loan_id = loan_data.get('LoanID', f"LOAN-{uuid.uuid4().hex[:8].upper()}")
         user_id = loan_data['UserID']
 
+        
+
         try:
             amount = str(Decimal(loan_data['LoanAmount']))
+            # round the decimal to 2 decimal places
+            amount = str(Decimal(amount).quantize(Decimal('0.01')))  # Round to 2 decimal places
             interest_rate = str(Decimal(loan_data['InterestRate']).quantize(Decimal('0.01')))  # Round to 2 decimal places
+            # interest rate cant be zero or negative
+            if float(interest_rate) <= 0:
+                return "Error: InterestRate must be a positive number."
         except Exception:
             return "Error: Invalid Amount or InterestRate format. Expected a number."
 
@@ -671,11 +814,43 @@ class BankingXMLQueries:
     # ==============================================
     # CRUD Operations - Cards (Keep existing XQuery implementations)
     # ==============================================
-    def create_card(self, card_data: Dict) -> str:
+
+    def validate_card_data(self, card_data: Dict) -> Optional[str]:
         required = ['AccountID', 'CardType', 'CardNumber', 'CVV', 'ExpiryDate']
-        if not all(field in card_data for field in required):
-            missing_fields = [field for field in required if field not in card_data]
+        missing_fields = [field for field in required if field not in card_data]
+        if missing_fields:
             return f"Error: Missing required card fields: {', '.join(missing_fields)}"
+
+        # Validate CVV is numeric and 3–4 digits
+        if not str(card_data['CVV']).isdigit() or not (3 <= len(str(card_data['CVV'])) <= 4):
+            return "Error: Invalid CVV. Must be a 3 or 4-digit number."
+
+        # Validate CardNumber format (basic check: numeric and length between 12–19)
+        if not str(card_data['CardNumber']).isdigit() or not (12 <= len(str(card_data['CardNumber'])) <= 19):
+            return "Error: Invalid CardNumber. Must be a numeric string between 12 and 19 digits."
+
+        # Validate expiry date format
+        try:
+            datetime.strptime(str(card_data['ExpiryDate']).split('T')[0], '%Y-%m-%d')
+        except ValueError:
+            return "Error: Invalid ExpiryDate format. Expected YYYY-MM-DD."
+
+        # Optionally, validate card type and status
+        valid_card_types = ['credit', 'debit', 'prepaid']
+        if 'CardType' in card_data and card_data['CardType'].lower() not in valid_card_types:
+            return f"Error: CardType must be one of {valid_card_types}."
+
+        valid_statuses = ['active', 'inactive', 'blocked', 'expired']
+        if 'Status' in card_data and card_data['Status'].lower() not in valid_statuses:
+            return f"Error: Status must be one of {valid_statuses}."
+
+        return None
+
+    def create_card(self, card_data: Dict) -> str:
+        # Validate card data
+        validation_error = self.validate_card_data(card_data)
+        if validation_error:
+            return validation_error
 
         card_id = card_data.get('CardID', f"CARD-{uuid.uuid4().hex[:8].upper()}")
         account_id = card_data['AccountID']
@@ -792,12 +967,17 @@ class BankingXMLQueries:
         missing = [f for f in required if f not in employee_data]
         if missing:
             return f"Error: Missing required employee fields: {', '.join(missing)}"
+        # validate that position is a string
+        if not isinstance(employee_data['Position'], str) or not employee_data['Position'].strip():
+            return "Error: Invalid Position format. Expected a non-empty string."
 
         user_id = employee_data['UserID']
         position = employee_data['Position']
         branch_id = employee_data['BranchID']
         try:
             salary = str(Decimal(employee_data['Salary']))
+            # round the decimal to 2 decimal places
+            salary = str(Decimal(salary).quantize(Decimal('0.01')))  # Round to 2 decimal places
         except Exception:
             return "Error: Invalid Salary format. Expected a number."
         employee_id = employee_data.get('EmployeeID', f"EMP-{uuid.uuid4().hex[:8].upper()}")
@@ -871,10 +1051,16 @@ class BankingXMLQueries:
              return "Error: Invalid input: employee_id and new_position are required." # ValueError was too harsh for API.
         try:
             salary_str = str(Decimal(new_salary))
+            # round the decimal to 2 decimal places
+            salary_str = str(Decimal(salary_str).quantize(Decimal('0.01')))  # Round to 2 decimal places
             if Decimal(new_salary) <= 0:
                  return "Error: new_salary must be positive."
         except Exception:
             return "Error: Invalid new_salary format. Expected a number."
+        
+        # validate that position is a string
+        if not isinstance(new_position, str) or not new_position.strip():
+            return "Error: Invalid new_position format. Expected a non-empty string."
 
 
         session = None
@@ -917,9 +1103,9 @@ class BankingXMLQueries:
                 session.close()
 
 
-    # ==============================================
-    # Read Queries - Converted from XPath to XQuery
-    # ==============================================
+    # ========================================================================
+    # Read Queries - 
+    # ========================================================================
 
     def get_user_by_id(self, user_id: str) -> Optional[Dict]:
         """Get user details by UserID using BaseX"""
@@ -1174,7 +1360,7 @@ class BankingXMLQueries:
     # ==============================================
     # Advanced Account Queries (Converted)
     # ==============================================
-    def get_accounts_with_min_balance(self, min_balance: Decimal) -> List[Dict]:
+    def get_accounts_with_min_balance(self, min_balance: Decimal) -> List[Dict]:  # ✅
         """Get accounts with balance greater than or equal to specified amount using XQuery"""
         min_balance_str = str(min_balance)
         query = f'''
@@ -1183,7 +1369,7 @@ class BankingXMLQueries:
         result = self._execute_query(query)
         return self._parse_xml_string(result, "Accounts", "Account")
 
-    def get_accounts_sorted_by_balance(self, account_type: Optional[str] = None, reverse: bool = True) -> List[Dict]:
+    def get_accounts_sorted_by_balance(self, account_type: Optional[str] = None, reverse: bool = True) -> List[Dict]: # ✅: all sends none
         """Get accounts sorted by balance, optionally filtered by type using XQuery"""
         order = "descending" if reverse else "ascending"
         filter_clause = f'[AccountType = "{account_type}"]' if account_type else ""
@@ -1200,13 +1386,23 @@ class BankingXMLQueries:
     # Advanced Transaction Queries (Converted)
     # ==============================================
     def get_largest_transactions(self, top_n: int = 10) -> List[Dict]:
+        if top_n == -1:
             query = f'''
-            for $t in doc("{self.db_name}/transactions.xml")/Transactions/Transaction
-            order by xs:decimal($t/Amount) descending
-            return $t[position() <= {top_n}]
+                for $t in doc("{self.db_name}/transactions.xml")/Transactions/Transaction
+                order by xs:decimal($t/Amount) descending
+                return $t
             '''
-            result = self._execute_query(query)
-            return self._parse_xml_string(result, "Transactions", "Transaction")
+        else:
+            query = f'''
+                let $transactions := 
+                    for $t in doc("{self.db_name}/transactions.xml")/Transactions/Transaction
+                    order by xs:decimal($t/Amount) descending
+                    return $t
+                return $transactions[position() <= {top_n}]
+            '''
+
+        result = self._execute_query(query)
+        return self._parse_xml_string(result, "Transactions", "Transaction")
 
     def get_transaction_stats(self, account_id: str) -> Dict:
         """Get statistics for transactions on an account using XQuery"""
@@ -1246,11 +1442,11 @@ class BankingXMLQueries:
         return parsed if parsed else {} # Return empty dict if no stats found
 
 
-    def detect_high_value_transactions(self, threshold: Decimal, days: int = 7) -> List[Dict]:
+    def detect_high_value_transactions( self,threshold: Decimal, days: int = 7) -> List[Dict]:
         """Detect high value transactions in recent period using XQuery"""
         threshold_str = str(threshold)
         end_date = datetime.now() # Use current time
-        start_date = end_date - timedelta(days=days)
+        start_date = end_date - timedelta(days=float(days))  # preserves decimals
         start_date_str = start_date.isoformat()
 
         query = f'''
@@ -1259,8 +1455,8 @@ class BankingXMLQueries:
 
         for $t in doc("{self.db_name}/transactions.xml")/Transactions/Transaction
         where xs:decimal($t/Amount) >= $thresh
-          and xs:dateTime($t/Timestamp) >= $startDate
-        order by xs:decimal($t/Amount) descending, $t/Timestamp descending
+        and xs:dateTime($t/Date) >= $startDate
+        order by xs:decimal($t/Amount) descending, $t/Date descending
         return $t
         '''
         result = self._execute_query(query)
@@ -1298,9 +1494,6 @@ class BankingXMLQueries:
         user['total_balance'] = total_balance # Add calculated total balance
         return user
 
-        # Alternative: Complex XQuery (can be less readable/maintainable)
-        # This would involve joining doc("users") with doc("accounts") and doc("transactions")
-        # Potentially slower if datasets are large, compared to targeted queries.
 
 
     def get_employee_performance(self, branch_id: str) -> List[Dict]:
@@ -1389,9 +1582,9 @@ class BankingXMLQueries:
         """Get transaction volume report by time period using XQuery grouping"""
         # Choose the grouping format based on the period
         period_format = {
-            'day': 'xs:date(substring($t/Timestamp, 1, 10))', # YYYY-MM-DD
-            'month': 'substring($t/Timestamp, 1, 7)',         # YYYY-MM
-            'year': 'substring($t/Timestamp, 1, 4)'           # YYYY
+            'day': 'xs:date(substring($t/Date, 1, 10))', # YYYY-MM-DD
+            'month': 'substring($t/Date, 1, 7)',         # YYYY-MM
+            'year': 'substring($t/Date, 1, 4)'           # YYYY
             # Week grouping is complex in pure XQuery, might need external processing
             # or specific BaseX date functions if available.
         }.get(period)
