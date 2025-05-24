@@ -1,6 +1,22 @@
-# BaseX - Populated for User
+# BaseX XML Banking System
 
-This ZIP file contains the full BaseX program along with a pre-populated banking database. Follow the instructions below to set up and use the system.
+This project is a simple banking application built on top of the BaseX XML database. It demonstrates how to manage banking data using XML technologies, including validation and querying. The app provides a user-friendly interface for interacting with the banking database.
+
+## Features
+
+- **XML Data Storage:** All banking data is stored in XML format.
+- **XSD Schema Validation:** Ensures that all XML data conforms to a defined schema for data integrity.
+- **Pre-populated Database:** Comes with sample banking data for immediate use.
+- **Interactive Web App:** Built with Streamlit for easy querying and interaction.
+- **Cross-platform:** Works on Windows and other platforms with Java and Python support.
+
+## App Screenshots
+
+![Login Screen](App%20Screenshots/login.png)
+![Dashboard](App%20Screenshots/dashboard.png)
+![Account Details](App%20Screenshots/account_details.png)
+
+Follow the instructions below to set up and use the system.
 
 ## Prerequisites
 

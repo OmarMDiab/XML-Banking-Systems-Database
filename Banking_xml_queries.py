@@ -14,6 +14,7 @@ from BaseXClient import Session
 import uuid
 import xml.etree.ElementTree as ET # Using standard library for simple parsing
 import pandas as pd # For DataFrame operations if needed
+import re
 
 class BankingXMLQueries:
     def __init__(self, db_name: str = 'banking', db_host: str = 'localhost', db_port: int = 1984, db_user: str = 'Bank_Admin', db_pass: str = 'bankadmin'):
@@ -816,35 +817,33 @@ class BankingXMLQueries:
     # ==============================================
 
     def validate_card_data(self, card_data: Dict) -> Optional[str]:
-        required = ['AccountID', 'CardType', 'CardNumber', 'CVV', 'ExpiryDate']
-        missing_fields = [field for field in required if field not in card_data]
-        if missing_fields:
-            return f"Error: Missing required card fields: {', '.join(missing_fields)}"
+            required = ['AccountID', 'CardType', 'CardNumber', 'CVV', 'ExpiryDate']
+            missing_fields = [field for field in required if field not in card_data]
+            if missing_fields:
+                return f"Error: Missing required card fields: {', '.join(missing_fields)}"
 
-        # Validate CVV is numeric and 3–4 digits
-        if not str(card_data['CVV']).isdigit() or not (3 <= len(str(card_data['CVV'])) <= 4):
-            return "Error: Invalid CVV. Must be a 3 or 4-digit number."
+            # Validate CVV is numeric and 3–4 digits
+            if not str(card_data['CVV']).isdigit() or not (3 <= len(str(card_data['CVV'])) <= 4):
+                return "Error: Invalid CVV. Must be a 3 or 4-digit number."
 
-        # Validate CardNumber format (basic check: numeric and length between 12–19)
-        if not str(card_data['CardNumber']).isdigit() or not (12 <= len(str(card_data['CardNumber'])) <= 19):
-            return "Error: Invalid CardNumber. Must be a numeric string between 12 and 19 digits."
+        # Validate CardNumber format (allow dashes but ensure 12–19 digits total)
+            raw_card_number = str(card_data['CardNumber']).replace('-', '')
 
-        # Validate expiry date format
-        try:
-            datetime.strptime(str(card_data['ExpiryDate']).split('T')[0], '%Y-%m-%d')
-        except ValueError:
-            return "Error: Invalid ExpiryDate format. Expected YYYY-MM-DD."
+            if not raw_card_number.isdigit() or not (12 <= len(raw_card_number) <= 19):
+                return "Error: Invalid CardNumber. Must be 12–19 digits, optionally separated by dashes ('-')."
 
-        # Optionally, validate card type and status
-        valid_card_types = ['credit', 'debit', 'prepaid']
-        if 'CardType' in card_data and card_data['CardType'].lower() not in valid_card_types:
-            return f"Error: CardType must be one of {valid_card_types}."
+            # Validate expiry date format
+            try:
+                datetime.strptime(str(card_data['ExpiryDate']).split('T')[0], '%Y-%m-%d')
+            except ValueError:
+                return "Error: Invalid ExpiryDate format. Expected YYYY-MM-DD."
 
-        valid_statuses = ['active', 'inactive', 'blocked', 'expired']
-        if 'Status' in card_data and card_data['Status'].lower() not in valid_statuses:
-            return f"Error: Status must be one of {valid_statuses}."
+        
+            valid_statuses = ['active', 'inactive', 'blocked', 'expired']
+            if 'Status' in card_data and card_data['Status'].lower() not in valid_statuses:
+                return f"Error: Status must be one of {valid_statuses}."
 
-        return None
+            return None
 
     def create_card(self, card_data: Dict) -> str:
         # Validate card data
