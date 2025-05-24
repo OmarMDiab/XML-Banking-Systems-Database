@@ -30,11 +30,15 @@ So, this Login is for basexserver not static streamlit check!
 <img src="App%20Screenshots/Customer_Segementation.png" alt="Customer Segmentation"/>
 
 **Description: -**
+
+
 This function queries **users.xml** using XQuery to retrieve all customer UserIDs (<UserID> where <Role> is customer). For each user, it fetches their accounts (from another XML file) and sums the <Balance> values. Customers are then grouped into segments based on total balance thresholds.
 
 <img src="App%20Screenshots/Transaction_Analysis.png" alt="Transaction Analysis"/>
 
 **Description: -**
+
+
 This function queries **transactions.xml** using XQuery to group <Transaction> elements by day, month, or year based on the <Date> field. It calculates the total number and sum of <Amount> values for each period, returning a time-based transaction volume report.
 
 Follow the instructions below to set up and use the system.
