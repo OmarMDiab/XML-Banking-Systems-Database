@@ -13,6 +13,7 @@ This project is a simple banking application built on top of the BaseX XML datab
 ## App Screenshots
 
 ![Login Screen](App%20Screenshots/DB%20Authentication%20and%20security.png)
+-----------------------------------------------------------------------------
 ![Dashboard](App%20Screenshots/dashboard.png)
 
 Follow the instructions below to set up and use the system.
